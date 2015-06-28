@@ -211,6 +211,10 @@ public:
     : m_callable_(new Functor<T, F>(f))
   {
   }
+  Function(const Function& other)
+  {
+    m_callable_ = other.m_callable_;
+  }
 
   // dtor
   ~Function()
@@ -231,27 +235,31 @@ public:
     m_callable_ = new Functor<T, F>(f);
     return *this;
   }
+  Function operator=(const Function& other)
+  {
+    m_callable_ = other.m_callable_;
+  }
   Ret		operator()()
   {
     return m_callable_->operator()();
   }
 
-  Ret		operator()(A1 a1)
+  Ret		operator()(const A1& a1)
   {
     return m_callable_->operator()(a1);
   }
 
-  Ret		operator()(A1 a1, A2 a2)
+  Ret		operator()(const A1& a1, const A2& a2)
   {
     return m_callable_->operator()(a1, a2);
   }
 
-  Ret		operator()(A1 a1, A2 a2, A3 a3)
+  Ret		operator()(const A1& a1, const A2& a2, const A3& a3)
   {
     return m_callable_->operator()(a1, a2, a3);
   }
 
-  Ret		operator()(A1 a1, A2 a2, A3 a3, A4 a4)
+  Ret		operator()(const A1& a1, const A2& a2, const A3& a3, const A4& a4)
   {
     return m_callable_->operator()(a1, a2, a3, a4);
   }
