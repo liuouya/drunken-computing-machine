@@ -219,8 +219,6 @@ public:
   // dtor
   ~Function()
   {
-    if (m_callable_)
-      delete m_callable_;
   }
 
   // operator overloading

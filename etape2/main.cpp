@@ -110,5 +110,31 @@ int	main()
   Function<void (char, int, long, const char*)> ft4 = ftor;
   ft4('a', 1, 12345, "test");
 
+  // copy tests
+
+  Function<int ()> cft = ft;
+  cft();
+  Function<int (char)> cft1 = ft1;
+  cft1('f');
+  Function<int (char, char)> cft2 = ft2;
+  cft2('b', 'c');
+  Function<int (char, char, char)> cft3 = ft3;
+  cft3('a', 'b', 'c');
+  Function<void (char, int, long, const char*)> cft4 = ft4;
+  cft4('a', 1, 12345, "test");
+
+  // copy tests
+
+  Function<int ()> ccft(ft);
+  ccft();
+  Function<int (char)> ccft1(ft1);
+  ccft1('f');
+  Function<int (char, char)> ccft2(ft2);
+  ccft2('b', 'c');
+  Function<int (char, char, char)> ccft3(ft3);
+  ccft3('a', 'b', 'c');
+  Function<void (char, int, long, const char*)> ccft4(ft4);
+  ccft4('a', 1, 12345, "test");
+
   return 0;
 }
